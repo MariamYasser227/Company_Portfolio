@@ -98,7 +98,7 @@ const NavBar = () => {
           <div className="flex items-center gap-6 lg:gap-8">
             <div className="hidden lg:block">{navList(false)}</div>
             <Button
-              className="inline-block relative overflow-hidden group transition-colors duration-300 bg-[#1a8650] rounded-none w-[8rem] h-[3rem] font-bold text-white shadow-none text-lg text-center items-center justify-center animate-lightOnOff mr-4"
+              className="inline-block relative overflow-hidden group transition-colors duration-300 bg-[#1a8650] rounded-none w-[9rem] h-[3.5rem] font-bold text-white shadow-none text-lg text-center  animate-lightOnOff mr-4"
               size="lg"
             >
               <span className="absolute inset-0 transition-transform duration-500 ease-in-out origin-center scale-x-0 bg-[#073d22] group-hover:scale-x-100"></span>

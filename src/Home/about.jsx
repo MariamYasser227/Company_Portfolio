@@ -86,7 +86,7 @@ const About = () => {
           </h2>
 
           <Button
-            className="relative overflow-hidden group transition-all duration-300 bg-[#1a8650] rounded-lg w-[14rem] h-[3.5rem] p-0 font-bold text-white shadow-none text-lg mr-4"
+            className="relative overflow-hidden group transition-all duration-300 bg-[#1a8650] rounded-lg w-[14rem] h-[3.5rem] text-center items-center justify-center p-0 font-bold text-white shadow-none text-lg mr-4"
             size="lg"
           >
             <div className="relative flex items-center justify-center w-full h-full">
