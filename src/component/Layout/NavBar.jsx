@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
   Navbar,
   Typography,
@@ -10,15 +10,16 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { useState } from "react";
+import { TbWorld } from "react-icons/tb";
 
 const NavBar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const location = useLocation();
 
   const toggleDrawer = () => setOpenDrawer(!openDrawer);
 
   const navLinks = [
-    { name: "الرئيسية", path: "/", active: true },
+    { name: "الرئيسية", path: "/" },
     { name: "من نحن", path: "/about" },
     { name: "مراكز التمكين الشامل", path: "/centers" },
     { name: "خدماتنا", path: "/services" },
@@ -43,50 +44,61 @@ const NavBar = () => {
           : "flex-row items-center gap-6"
       }`}
     >
-      {navLinks.map((link, index) => (
-        <Typography
-          key={index}
-          as="li"
-          className={`cursor-pointer font-medium ${
-            isMobile
-              ? `${
-                  link.highlight ? "text-[#4caf50]" : "text-white"
-                } text-xl font-normal`
-              : `${
-                  link.active
-                    ? "text-[#1a8650] border-b-2 border-[#1a8650]"
-                    : "text-gray-800 hover:text-[#1a8650]"
-                } text-lg font-bold`
-          }`}
-        >
-          <Link to={link.path} onClick={isMobile ? toggleDrawer : undefined}>
-            {link.name}
-          </Link>
-        </Typography>
-      ))}
+      {navLinks.map((link, index) => {
+        const isActive = location.pathname === link.path;
+        return (
+          <Typography
+            key={index}
+            as="li"
+            className={`cursor-pointer relative group pb-1 ${
+              isMobile
+                ? `${isActive ? "text-[#4caf50]" : "text-white"} text-xl font-normal`
+                : `${
+                    isActive
+                      ? "text-[#1a8650]"
+                      : "text-gray-800 hover:text-[#1a8650]"
+                  } text-lg font-bold`
+            }`}
+          >
+            <Link to={link.path} onClick={isMobile ? toggleDrawer : undefined}>
+              {link.name}
+              {!isMobile && (
+                <span
+                  className={`absolute bottom-0 right-0 h-[2px] bg-[#1a8650] transition-all duration-300 ease-in-out ${
+                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                ></span>
+              )}
+            </Link>
+          </Typography>
+        );
+      })}
     </ul>
   );
 
   return (
     <div className="w-full" dir="rtl">
-      <Navbar className="sticky top-0 z-10 max-w-full px-4 py-3 bg-[#e0e7e1] border-none rounded-none shadow-none h-max lg:p-5">
-        <div className="flex items-center justify-between">
-          <Link to="/">
-            <img src="/assets/logo.png" alt="logo" className="h-16 w-36" />
+      <Navbar className="sticky top-0 z-10 max-w-full px-4 py-3 bg-[#e0e7e1] border-none rounded-none shadow-none h-max lg:px-12 lg:py-4">
+        <div className="flex items-center justify-between w-full">
+          <Link to="/" className="flex-shrink-0">
+            <img
+              src="/assets/logo.png"
+              alt="logo"
+              className="object-contain w-auto h-16"
+            />
           </Link>
+          <div className="flex items-center gap-6 lg:gap-8">
+            <div className="hidden lg:block">{navList(false)}</div>
 
-          <div className="hidden lg:block">{navList(false)}</div>
-
-          <div className="flex items-center gap-4">
             <Button
-              className="inline-block bg-[#1a8650] rounded-sm px-5 py-3 font-bold text-lg"
-              size="md"
+              className="inline-block bg-[#1a8650] rounded-none w-[8rem] h-[3rem] font-bold text-white shadow-none text-lg  items-center justify-center  animate-lightOnOff mr-4"
+              size="lg"
             >
               تواصل معنا
             </Button>
             <IconButton
               variant="text"
-              className=" lg:hidden"
+              className="lg:hidden"
               onClick={toggleDrawer}
             >
               <Bars3Icon
@@ -103,7 +115,7 @@ const NavBar = () => {
         open={openDrawer}
         onClose={toggleDrawer}
         size={window.innerWidth}
-        className="p-0 bg-transparent backdrop-blur-md"
+        className="bg-[#13231a]/95 backdrop-blur-md p-0"
         overlayProps={{ className: "fixed inset-0 bg-black/40" }}
       >
         <div className="relative flex flex-col w-full h-full">
@@ -112,7 +124,7 @@ const NavBar = () => {
               variant="text"
               color="white"
               onClick={toggleDrawer}
-              className="hover:bg-[#1a8650]"
+              className="hover:bg-transparent"
             >
               <XMarkIcon className="w-8 h-8" strokeWidth={2} />
             </IconButton>
