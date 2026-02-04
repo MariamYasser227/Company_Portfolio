@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./component/Layout/NavBar";
 import Home from "./Home/Home";
-
+import Footer from "./component/Layout/Footer";
 const App = () => {
   return (
     <BrowserRouter>
@@ -12,6 +12,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };

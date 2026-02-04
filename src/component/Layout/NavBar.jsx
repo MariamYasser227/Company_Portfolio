@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   Navbar,
@@ -10,13 +10,25 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { TbWorld } from "react-icons/tb";
 
 const NavBar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
   const toggleDrawer = () => setOpenDrawer(!openDrawer);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { name: "الرئيسية", path: "/" },
@@ -38,11 +50,7 @@ const NavBar = () => {
 
   const navList = (isMobile = false) => (
     <ul
-      className={`flex ${
-        isMobile
-          ? "flex-col items-start gap-5 w-full pr-8"
-          : "flex-row items-center gap-6"
-      }`}
+      className={`flex ${isMobile ? "flex-col items-start gap-5 w-full pr-8" : "flex-row items-center gap-6"}`}
     >
       {navLinks.map((link, index) => {
         const isActive = location.pathname === link.path;
@@ -53,20 +61,14 @@ const NavBar = () => {
             className={`cursor-pointer relative group pb-1 ${
               isMobile
                 ? `${isActive ? "text-[#4caf50]" : "text-white"} text-xl font-normal`
-                : `${
-                    isActive
-                      ? "text-[#1a8650]"
-                      : "text-gray-800 hover:text-[#1a8650]"
-                  } text-lg font-bold`
+                : `${isActive ? "text-[#1a8650]" : "text-black hover:text-[#1a8650]"} text-lg font-bold`
             }`}
           >
             <Link to={link.path} onClick={isMobile ? toggleDrawer : undefined}>
               {link.name}
               {!isMobile && (
                 <span
-                  className={`absolute bottom-0 right-0 h-[2px] bg-[#1a8650] transition-all duration-300 ease-in-out ${
-                    isActive ? "w-full" : "w-0 group-hover:w-full"
-                  }`}
+                  className={`absolute bottom-0 right-0 h-[2px] bg-[#1a8650] transition-all duration-300 ease-in-out ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
                 ></span>
               )}
             </Link>
@@ -78,24 +80,29 @@ const NavBar = () => {
 
   return (
     <div className="w-full" dir="rtl">
-      <Navbar className="sticky top-0 z-50 h-max max-w-full rounded-none border-none bg-gradient-to-l from-[#c1d5c8] via-[#c1d5c8] to-[#f8faf9] px-4 py-3 shadow-none lg:px-12 lg:py-4">
+      <Navbar
+        className={`fixed top-0 z-50 h-max max-w-full rounded-none border-none transition-all duration-300 px-4 shadow-none lg:px-12 ${
+          isScrolled
+            ? "bg-white/80 backdrop-blur-md py-3"
+            : "bg-gradient-to-l from-[#c1d5c8] via-[#c1d5c8] to-[#f8faf9] py-2 lg:py-4"
+        }`}
+      >
         <div className="flex items-center justify-between w-full">
           <Link to="/" className="flex-shrink-0">
             <img
               src="/assets/logo.png"
               alt="logo"
-              className="object-contain w-auto h-16"
+              className={`object-contain transition-all duration-300 ${isScrolled ? "h-12" : "h-16"}`}
             />
           </Link>
           <div className="flex items-center gap-6 lg:gap-8">
             <div className="hidden lg:block">{navList(false)}</div>
-
             <Button
-              className="inline-block relative overflow-hidden group  transition-colors duration-300 bg-[#1a8650] rounded-none w-[8rem] h-[3rem] font-bold text-white shadow-none text-lg  items-center justify-center  animate-lightOnOff mr-4"
+              className="inline-block relative overflow-hidden group transition-colors duration-300 bg-[#1a8650] rounded-none w-[8rem] h-[3rem] font-bold text-white shadow-none text-lg text-center items-center justify-center animate-lightOnOff mr-4"
               size="lg"
             >
               <span className="absolute inset-0 transition-transform duration-500 ease-in-out origin-center scale-x-0 bg-[#073d22] group-hover:scale-x-100"></span>
-              <span className="relative z-10 transition-colors duration-500 group-hover:text-white ">
+              <span className="relative z-10 transition-colors duration-500 group-hover:text-white">
                 تواصل معنا
               </span>
             </Button>
@@ -132,9 +139,7 @@ const NavBar = () => {
               <XMarkIcon className="w-8 h-8" strokeWidth={2} />
             </IconButton>
           </div>
-
           <div className="mt-4">{navList(true)}</div>
-
           <div className="flex items-center justify-center gap-6 pb-20 mt-auto">
             {socialLinks.map((social, index) => (
               <a

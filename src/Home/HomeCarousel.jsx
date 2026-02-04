@@ -39,7 +39,7 @@ const HomeCarousel = () => {
 
   return (
     <div
-      className="relative w-full h-[40rem] overflow-hidden touch-pan-x"
+      className="relative w-full h-[50rem] overflow-hidden touch-pan-x"
       dir="ltr"
     >
       <Carousel
@@ -49,7 +49,7 @@ const HomeCarousel = () => {
         interval={3000}
         transition={{ type: "tween", duration: 0.5 }}
         navigation={({ setActiveIndex, activeIndex, length }) => (
-          <div className="absolute z-50 flex gap-2 bottom-10 left-2/4 -translate-x-2/4">
+          <div className="absolute z-40 flex gap-2 bottom-10 left-2/4 -translate-x-2/4">
             {new Array(length).fill("").map((_, i) => (
               <span
                 key={i}
