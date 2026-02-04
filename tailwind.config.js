@@ -9,6 +9,9 @@ module.exports = withMT({
   ],
   theme: {
     extend: {
+      fontFamily: {
+        arabic: ["'DIN Next LT Arabic'", "sans-serif"],
+      },
       keyframes: {
         lightOnOff: {
           "0%, 100%": { boxShadow: "0 0 0 0px #1a8650" },

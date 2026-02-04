@@ -78,7 +78,7 @@ const NavBar = () => {
 
   return (
     <div className="w-full" dir="rtl">
-      <Navbar className="sticky top-0 z-10 max-w-full px-4 py-3 bg-[#e0e7e1] border-none rounded-none shadow-none h-max lg:px-12 lg:py-4">
+      <Navbar className="sticky top-0 z-50 h-max max-w-full rounded-none border-none bg-gradient-to-l from-[#c1d5c8] via-[#c1d5c8] to-[#f8faf9] px-4 py-3 shadow-none lg:px-12 lg:py-4">
         <div className="flex items-center justify-between w-full">
           <Link to="/" className="flex-shrink-0">
             <img
@@ -91,10 +91,13 @@ const NavBar = () => {
             <div className="hidden lg:block">{navList(false)}</div>
 
             <Button
-              className="inline-block bg-[#1a8650] rounded-none w-[8rem] h-[3rem] font-bold text-white shadow-none text-lg  items-center justify-center  animate-lightOnOff mr-4"
+              className="inline-block relative overflow-hidden group  transition-colors duration-300 bg-[#1a8650] rounded-none w-[8rem] h-[3rem] font-bold text-white shadow-none text-lg  items-center justify-center  animate-lightOnOff mr-4"
               size="lg"
             >
-              تواصل معنا
+              <span className="absolute inset-0 transition-transform duration-500 ease-in-out origin-center scale-x-0 bg-[#073d22] group-hover:scale-x-100"></span>
+              <span className="relative z-10 transition-colors duration-500 group-hover:text-white ">
+                تواصل معنا
+              </span>
             </Button>
             <IconButton
               variant="text"
