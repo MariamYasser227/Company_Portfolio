@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IconButton, Button } from "@material-tailwind/react";
 import { FiChevronRight, FiChevronLeft, FiSearch, FiX } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const activitiesData = [
   { id: 1, title: "كرة قدم", img: "/assets/photo.jpg" },
@@ -32,6 +33,8 @@ const ActivitiesCarousel = () => {
         <h2 className="text-5xl font-bold text-[#1a8650] border-b-4 border-[#1a8650] pb-2">
           الفعاليات
         </h2>
+        
+        <Link to="/events">
         <Button
           className="relative overflow-hidden group transition-all duration-300 bg-[#1a8650] rounded-lg w-[8rem] h-[3.5rem] p-0 font-bold text-white shadow-none text-lg"
           size="lg"
@@ -43,6 +46,7 @@ const ActivitiesCarousel = () => {
             </span>
           </div>
         </Button>
+        </Link>
       </div>
 
       <div className="relative mx-auto overflow-hidden max-w-7xl">
