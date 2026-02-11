@@ -1,6 +1,6 @@
 import HomeCarousel from "./HomeCarousel";
 import About from "./about";
-import  ActivitiesCarousel  from "./Activity";
+import ActivitiesCarousel from "./Activity";
 import Last from "./Last";
 
 const Home = () => {
@@ -8,11 +8,11 @@ const Home = () => {
     <div className="w-full h-full font-arabic">
       <HomeCarousel />
       <About />
-      <ActivitiesCarousel />
+      {/*<ActivitiesCarousel />*/}
+
       <Last />
-      
     </div>
   );
-} 
+};
 
 export default Home;

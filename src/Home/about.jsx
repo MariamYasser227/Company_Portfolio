@@ -74,7 +74,7 @@ const About = () => {
         <div
           className="absolute inset-0 z-0 bg-center bg-no-repeat bg-cover"
           style={{
-            backgroundImage: `url(/assets/photo.jpg)`,
+            backgroundImage: `url(/assets/download.png)`,
             backgroundColor: "rgba(10, 54, 51, 0.85)",
             backgroundBlendMode: "overlay",
           }}

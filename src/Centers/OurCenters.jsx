@@ -19,26 +19,26 @@ const OurCenters = () => {
 
   const branches = [
     {
-      name: "مركز التمكين الشامل للرعاية النهارية (الدمام - الجلوية)",
-      phone: "0539971790",
+      name: "مركز التمكين الشامل ",
+      phone: "+966",
       color: "border-red-500",
       topColor: "bg-red-500",
     },
     {
-      name: "التمكين الشامل (المدينة المنورة)",
-      phone: "0545590801",
+      name: "التمكين الشامل ",
+      phone: "+966",
       color: "border-cyan-600",
       topColor: "bg-cyan-600",
     },
     {
-      name: "التمكين الشامل (عفيف-ذكور)",
-      phone: "0553733065",
+      name: "التمكين الشامل ",
+      phone: "+966",
       color: "border-red-500",
       topColor: "bg-red-500",
     },
     {
-      name: "التمكين الشامل (عفيف)",
-      phone: "0553733065",
+      name: "التمكين الشامل ",
+      phone: "+966",
       color: "border-cyan-600",
       topColor: "bg-cyan-600",
     },

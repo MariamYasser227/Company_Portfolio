@@ -107,7 +107,7 @@ const NavBar = () => {
               src="/assets/logo.png"
               alt="logo"
               className={`object-contain transition-all duration-300 ${
-                isScrolled ? "h-10" : "h-14"
+                isScrolled ? "h-12 w-24" : "h-16 w-28"
               }`}
             />
           </Link>

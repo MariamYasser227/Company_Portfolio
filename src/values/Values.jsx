@@ -54,7 +54,7 @@ const CorporateValues = () => {
           </h3>
         </div>
 
-        <div className="w-full h-[28rem] rounded-2xl overflow-hidden shadow-lg">
+        <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden shadow-lg">
           <img
             src="/assets/values.jpg"
             alt="قيم مركز يدك معنا"

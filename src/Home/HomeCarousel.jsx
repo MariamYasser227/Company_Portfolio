@@ -4,42 +4,88 @@ import { Link } from "react-router-dom";
 const HomeCarousel = () => {
   const slides = [
     {
-      img: "/assets/download.jpg",
-      title: "الرسالة",
-      description: "تقديم خدمات شاملة ومتميزة في مجالات الرعاية...",
+      img: "/assets/download.png",
+      title: "من نحن",
+      path: "/about",
     },
     {
-      img: "/assets/download.jpg",
-      title: "نهدف الي دعم الأفراد في رحلتهم نحو تحقيق امكانياتهم الكاملة",
-      description: "تسعى المنصة إلى تمكين الأفراد...",
+      img: "/assets/download.png",
+      title: "رؤيتنا",
+      path: "/vision",
     },
     {
-      img: "/assets/download.jpg",
-      title: "نخدمك أينما كنت كونك تستحق الحياة",
-      description: "نمو الانسانية",
+      img: "/assets/download.png",
+      title: "رسالتنا",
+      path: "/mission",
     },
     {
-      img: "/assets/download.jpg",
-      title: "اهدافنا",
-      description:
-        "تحقيق أهدافنا من خلال تقديم خدمات متميزة ودعم مستمر للأفراد.",
+      img: "/assets/download.png",
+      title: "قيمنا المؤسسية",
+      path: "/values",
     },
     {
-      img: "/assets/download.jpg",
-      title: "القيم",
-      description:
-        "الاحترام، الشمولية، الابتكار، التعاون، والتميز في تقديم الخدمات.",
+      img: "/assets/download.png",
+      title: "اهداف المركز",
+      path: "/goals",
     },
     {
-      img: "/assets/download.jpg",
-      title: "الرؤية",
-      description: "أن نكون الخيار الاول والرائد...",
+      img: "/assets/download.png",
+      title: "الفئات المستفيدة",
+      path: "/beneficiaries",
     },
+    {
+      img: "/assets/download.png",
+      title: "منهجية التأهيل و الدعم",
+      path: "/methodology",
+    },{
+      img: "/assets/download.png",
+      title: "نطاق الخدمات التأهيلية",
+      path: "/services",
+    },{
+      img: "/assets/download.png",
+      title: "سياسة الجودة و التحسين المستمر",
+      path: "/quality",
+    },{
+      img: "/assets/download.png",
+      title: "الالتزام النظامي و الاخلاقي",
+      path: "/compliance",
+    },
+    {
+      img: "/assets/download.png",
+      title: "سياسة الخصوصية و حماية البيانات",
+      path: "/privacy",
+    },
+    {
+      img: "/assets/download.png",
+      title: "سياسة حقوق المستفيدين و السلامة و ادارة المخاطر",
+      path: "/rights",
+    },
+    {
+      img: "/assets/download.png",
+      title: "فريق العمل",
+      path: "/team",
+    },
+    {
+      img: "/assets/download.png",
+      title: "لماذا يدك معنا؟",
+      path: "/why-us",
+    },{
+      img: "/assets/download.png",
+      title: "الاسئلة الشائعة",
+      path: "/faq",
+    },
+    {
+      img: "/assets/download.png",
+      title: "تواصل معنا",
+      path: "/contact",
+    },
+    
+    
   ];
 
   return (
     <div
-      className="relative w-full h-[50rem] overflow-hidden touch-pan-x"
+      className="relative w-full h-[46rem] overflow-hidden touch-pan-x"
       dir="ltr"
     >
       <Carousel
@@ -67,7 +113,7 @@ const HomeCarousel = () => {
             <img
               src={slide.img}
               alt={`slide-${index}`}
-              className="absolute inset-0 object-cover w-full h-full"
+              className="absolute inset-0 object-cover w-full h-full "
             />
 
             <div className="absolute inset-0 bg-gradient-to-t from-[#1a8650]/20 to-transparent" />
@@ -80,7 +126,7 @@ const HomeCarousel = () => {
                 {slide.title && (
                   <Typography
                     variant="h1"
-                    className="mb-6 text-5xl font-bold text-white drop-shadow-md lg:text-7xl"
+                    className="mb-6 text-5xl font-bold text-white drop-shadow-md lg:text-7xl "
                   >
                     {slide.title}
                   </Typography>
@@ -95,7 +141,7 @@ const HomeCarousel = () => {
                   </Typography>
                 )}
 
-                <Link to="/about">
+                <Link to={slide.path}>
                   <Button
                     size="lg"
                     className="relative overflow-hidden group bg-[#1a8650] text-white rounded-md px-5 py-3 text-xl font-bold shadow-lg transition-colors duration-300"

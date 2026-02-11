@@ -13,17 +13,19 @@ const LINKS = [
   {
     title: "روابط هامة",
     items: [
-      "من نحن",
-      "خدماتنا",
-      "المركز الإعلامي",
-      "الفعاليات",
-      "الهيكل الإداري",
-      "مراكزنا",
+      { label: "من نحن", path: "/about" },
+      { label: "خدماتنا", path: "/services" },
+      { label: "المركز الإعلامي", path: "/media" },
+      { label: "مراكزنا", path: "/centers" },
     ],
   },
   {
     title: " ",
-    items: ["الوظائف", "تواصل معنا", "من نحن", "بوابة فريقنا"],
+    items: [
+      { label: "تواصل معنا", path: "/contact" },
+      { label: "من نحن", path: "/about" },
+      { label: "بوابة فريقنا", path: "/team" },
+    ],
   },
 ];
 
@@ -33,7 +35,7 @@ const Footer = () => {
       <div className="w-full px-8 mx-auto max-w-7xl">
         <div className="grid justify-between grid-cols-1 gap-12 md:grid-cols-3">
           <div className="flex flex-col items-center md:items-start">
-            <img src="/assets/icon.png" alt="Logo" className="h-20 mb-6" />
+            <img src="/assets/logo.png" alt="Logo" className="w-56 mb-6 h-36" />
             <div className="flex gap-4">
               <a
                 href="https://facebook.com"
@@ -104,13 +106,13 @@ const Footer = () => {
                   {title}
                 </Typography>
                 {items.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <Typography
                       as={Link}
-                      to="/"
-                      className="py-1.5 font-normal text-white  transition-all duration-300 ease-in-out hover:text-[#1a8650] hover:pr-3"
+                      to={link.path}
+                      className="py-1.5 font-normal text-white transition-all duration-300 ease-in-out hover:text-[#1a8650] hover:pr-3"
                     >
-                      {link}
+                      {link.label}
                     </Typography>
                   </li>
                 ))}
@@ -133,23 +135,25 @@ const Footer = () => {
               <li className="flex items-center gap-3 py-1.5 font-normal text-white transition-all duration-300 ease-in-out hover:text-[#1a8650] hover:pr-3">
                 <HiOutlineLocationMarker className="h-5 w-5 text-[#1a8650] shrink-0" />
                 <Typography className="text-sm font-normal">
-                  المملكة العربية السعودية - المنطقة الشرقية - الأحساء
+                  المملكة العربية السعودية - الدمام - حي بدر
                 </Typography>
               </li>
 
               <li className="flex items-center gap-3 py-1.5 font-normal text-white transition-all duration-300 ease-in-out hover:text-[#1a8650] hover:pr-3">
                 <HiOutlinePhone className="h-5 w-5 text-[#1a8650] shrink-0" />
                 <Typography className="text-sm font-normal" dir="ltr">
-                  0537766994
+                  +966 59 868 4286
                 </Typography>
               </li>
 
-              <li className="flex items-center gap-3 py-1.5 font-normal text-white transition-all duration-300 ease-in-out hover:text-[#1a8650] hover:pr-3">
-                <HiOutlineMail className="h-5 w-5 text-[#1a8650] shrink-0" />
-                <Typography className="text-sm font-normal">
-                  info@ghco.sa
-                </Typography>
-              </li>
+              <Link to="/contact">
+                <li className="flex items-center gap-3 py-1.5 font-normal text-white transition-all duration-300 ease-in-out hover:text-[#1a8650] hover:pr-3">
+                  <HiOutlineMail className="h-5 w-5 text-[#1a8650] shrink-0" />
+                  <Typography className="text-sm font-normal">
+                    yadakmaana1@gmail.com
+                  </Typography>
+                </li>
+              </Link>
             </ul>
           </div>
         </div>
@@ -159,7 +163,8 @@ const Footer = () => {
             className="mb-4 font-normal text-center text-gray-400 md:mb-0"
           >
             جميع الحقوق محفوظة
-            <span className="mr-1 text-white"> لنمو الإنسانية</span>  &copy; 2026
+            <span className="mr-1 text-white"> ليدك معنا للتأهيل</span> &copy;
+            2026
           </Typography>
         </div>
       </div>

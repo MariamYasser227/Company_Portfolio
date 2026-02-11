@@ -48,7 +48,7 @@ const ServicesScope = () => {
           </h3>
         </div>
 
-        <div className="w-full h-[38rem] rounded-2xl overflow-hidden shadow-lg">
+        <div className="w-full aspect-[17/9] rounded-2xl overflow-hidden shadow-lg">
           <img
             src="/assets/service.jpeg"
             alt="خدمات مركز يدك معنا"

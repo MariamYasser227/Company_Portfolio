@@ -16,7 +16,7 @@ const OurMission = () => {
           </h3>
         </div>
 
-        <div className="w-full h-[25rem] rounded-2xl overflow-hidden shadow-lg">
+        <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden shadow-lg">
           <img
             src="/assets/who.jpeg"
             alt="رسالة مركز يدك معنا"
