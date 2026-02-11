@@ -1,6 +1,6 @@
 import React from "react";
 import PageHeader from "../component/Layout/PageHeader";
-
+import { Link } from "react-router-dom";
 const Who = () => {
   return (
     <main className="min-h-screen pb-20 bg-white">
@@ -15,9 +15,7 @@ const Who = () => {
             مركز يدك معنا للتأهيل للرعاية
           </h3>
         </div>
-        <div
-          className="w-full aspect-[21/9] rounded-2xl overflow-hidden shadow-lg"
-        >
+        <div className="w-full aspect-[21/9] rounded-2xl overflow-hidden shadow-lg">
           <img
             src="/assets/who.jpeg"
             alt="مركز يدك معنا للتأهيل"
@@ -66,12 +64,12 @@ const Who = () => {
           <div className="pt-6">
             <p className="flex items-center gap-2 text-xl font-bold text-black">
               للتسجيل الآن واكتشاف المزيد:
-              <a
-                href="/services"
+              <Link
+                to="/services"
                 className="text-blue-600 underline transition-colors decoration-2 underline-offset-4 hover:text-blue-800"
               >
                 خدماتنا التأهيلية
-              </a>
+              </Link>
             </p>
           </div>
         </div>
