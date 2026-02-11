@@ -6,6 +6,7 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 import { IoIosArrowDown } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const FAQ = () => {
   const [open, setOpen] = useState(0);
@@ -101,12 +102,12 @@ const FAQ = () => {
 
         <div className="pt-10 text-center border-t border-gray-100">
           <p className="mb-4 text-xl font-bold text-black">هل لديك سؤال آخر؟</p>
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="inline-block px-10 py-3 bg-[#1a8650] text-white rounded-full font-bold hover:bg-[#0e4b2d] transition-all shadow-md active:scale-95"
           >
             تواصل معنا مباشرة
-          </a>
+          </Link>
         </div>
       </div>
     </main>
